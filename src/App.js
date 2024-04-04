@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>checking here, it is fast</p>
       </header>
     </div>
   );
