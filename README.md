@@ -68,3 +68,49 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## docker and docker composer command to run the cotainer
+### docker
+`docker ps -a`
+check all containers
+
+`docker image ls`
+check and list all images
+
+`docker image rm [image id]`
+rm the image with id
+
+`docker build -t react-image .`
+build an image called react-image in current directory from file Dockerfile
+
+`docker rm react-app -f`
+force remove the containter react-app
+
+`docker run -d --env-file ./.env -v localdirectory:contianerdirectory:ro -p 4000:3000 --name react-app react-image`
+run container react-app based on image react-image, connect local port 3000 to contienr 4000, and sync local directory(need full path of local directory) to container directory, :ro tell that in container, can only read; use ./.env as env file for the container to use any evironment vairable.
+
+`docker exec -it react-app bash`
+docker interact the container react-app and go to container bash
+
+
+
+`docker system prune`
+WARNING! This will remove:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all dangling images
+        - unused build cache
+
+### docker composer
+`docker-compose up`
+docker composer find the file docker-compose.yml and run through it to make the image and run it to start up containers
+
+`docker-compose down`
+stop container and delete the container in the docker-composer.yml file, however the images and volumes will still remain
+
+`docker-composer down --rmi all -v`
+this will delete all images and volumes as well
+
+
+
+
